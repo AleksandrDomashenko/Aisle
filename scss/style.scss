@@ -1,0 +1,508 @@
+//нулевой стиль
+@import "nulestyle.scss";
+//файл с миксинами
+@import "mixin.scss";
+//переменные
+$ninepixel: 9px;
+$ff: 'Roboto', sans-serif;
+//шаблоны
+%templ_fsl {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+%templ_mr {
+      margin-right: $ninepixel;
+}
+////////////////////////////////////////
+body {
+  background-color: #f5f3eb;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+//
+// style info block
+//
+.block_info {
+  background: #0b4d3c;
+  width: 100%;
+  height: 36px;
+  @include flex(flex, none, space-around, none);
+  font-family: $ff;
+  @include fz_lh_ls_c(12px,24px,none,#ffffff);
+  .first {
+    @extend %templ_fsl;
+    img {
+      @extend %templ_mr;
+    }
+  }
+  .second {
+    @extend %templ_fsl;
+    p {
+      margin-right: 50px;
+    }
+  }
+  .last {
+    @extend %templ_fsl;
+    img {
+      @extend %templ_mr;
+    }
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+//
+// style navigation block
+//
+.navigation_block {
+  @include pos(36px,97px);
+  @include flex(flex, row, space-around, center);
+  font-family: $ff;
+  @include fz_lh_ls_c(16px, 26px, none, #ffffff);
+  li {
+    margin-right: 56px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  a {
+    color: #303030;
+    &:hover {
+      text-shadow: 0px 0px 40px #0b4d3c;
+    }
+  }
+  img {
+    margin-right: 22px;
+  }
+  $mr: 33px;
+  .left_side_nav {
+    @include flex(flex, row, none, none);
+    margin-left: $mr;
+  }
+  .right_side_nav {
+    @include flex(flex, row, none, none);
+    margin-right: $mr;
+  }
+}
+//
+// style first_frame block
+//
+.first_frame {
+  @mixin first_frame_p($ls,$top,$left) {
+    letter-spacing: $ls;
+    top:$top;
+    left:$left;
+  }
+  @include pos(133px,732px);
+  background: url(../img/first_frame/phone_2.png) right bottom/20% 35% no-repeat,
+    url(../img/first_frame/phone.png) 100% 100%/ 49% 100% no-repeat,
+    url(../img/first_frame/girl.png) 17.5% 40%/432px 492px no-repeat;
+  background-color: #0b4d3c;
+  font-family: $ff;
+  img {
+    margin: 91px 864px 149px 144px;
+  }
+  p {
+    @include fz_lh_ls_c(96px, 110px, none, #ffffff);
+    position: absolute;
+    &:first-child {
+      @include first_frame_p(2px,3.5%,6.8%);
+    }
+    &:nth-child(2) {
+      @include first_frame_p(1px,25%,48.5%);
+    }
+    &:nth-child(3) {
+      @include first_frame_p(1px,49.5%,66%);
+    }
+    &:nth-child(4) {
+      @include first_frame_p(2px,81%,17.5%);
+    }
+    &:nth-child(5) {
+      width: 88px;
+      height: 64px;
+      @include fz_lh_ls_c(32px, 32px, none, none);
+      text-transform: uppercase;
+      text-align: center;
+      @include first_frame_p(none,85%,92%);
+    }
+  }
+  a {
+    color: #ffffff;
+    &:hover {
+      text-shadow: 0px 0px 70px #ffffff;
+    }
+  }
+}
+//
+// style second_frame block
+//
+.second_frame {
+  font-family: $ff;
+  @include pos(864px, 1040px);
+  background: url(../img/second_frame/logo_2.png) right 5%/11% no-repeat,
+    url(../img/second_frame/logo_1.png) right 50%/35% 100% no-repeat;
+  .head {
+    @include fz_lh_ls_c (95px, 96px, 2px, #000000);
+    @include pos_abs_t_l(125px, 16.25%);
+  }
+  .second_frame_img-block {
+    @include flex(flex, row, space-between, none);
+    max-width: 1250px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 256px;
+    p {
+      @include fz_lh_ls_c(16px, 22px, none, #000000);
+      @include flex(inline-flex, row, space-between, none);
+      margin-top: 10px;
+    }
+  }
+  .vector {
+    width: 200px;
+    @include flex(inline-block, row, none, none);
+    margin: auto 5px 5px 5px;
+    border: 1px solid #000000;
+  }
+  .info_block_head {
+    @include fz_lh_ls_c(35px, 56px, 4px, #000000);
+    text-transform: uppercase;
+    @include pos_abs_t_l(840px, calc(50% - 540px / 2));
+  }
+  .second_frame_info_block_mfram {
+    @include flex(flex, row, space-between, none);
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 200px;
+    @include fz_lh_ls_c(16px, 26px, none, none);
+    div {
+      @include flex(flex, row, center, center);
+    }
+    img {
+      margin-right: 20px;
+    }
+    span {
+      display: inline-flex;
+      padding-top: 10px;
+      @include fz_lh_ls_c(20px, 20px, none, none);
+    }
+  }
+  .foot_info_block {
+    @include pos_abs_t_l(1010px, calc(50% - 540px / 2))
+  }
+  .foot_info_block_img {
+    position: absolute;
+    top: 1010px;
+    right: 11%;
+  }
+}
+//
+// style three_frame block
+//
+.three_frame {
+  %temp_three_nth_seven_last {
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+  }
+  background: url(../img/three_frame/bubles.png) bottom left/450px no-repeat,
+    url(../img/three_frame/girls.png) 235px 295px / 680px 454px no-repeat,
+    url(../img/three_frame/new.png) 74% 25%/5% no-repeat,
+    url(../img/three_frame/legs.png) 90% 25%/338px 473px no-repeat,
+    url(../img/three_frame/dotted.png) 98% 10%/10% no-repeat;
+  background-color: #b14629;
+  @include pos(1970px, 864px);
+  font-family: $ff;
+  p {
+    &:first-child {
+      @include pos_abs_t_l(1.16% ,1.16%);
+      @include fz_lh_ls_c (193px,200px,8px,#ffffff);
+    }
+    &:nth-child(2) {
+      @include pos_abs_t_l(76%, 40%);
+      @include fz_lh_ls_c (184px,200px,8px,#ffffff);
+    }
+    &:nth-child(3) {
+      @include pos_abs_t_l(26%, 71.1%);
+      @include fz_lh_ls_c (25px,none,1.5px,blue);
+      text-transform: uppercase;
+      font-weight: bold;
+      text-shadow: 0px 0px 3px #000;
+    }
+    &:nth-child(4) {
+      @include pos_abs_t_l(90%, 5%);
+      @include fz_lh_ls_c (32px,32px,none,#a03315);
+      font-size: 32px;
+      line-height: 32px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    &:nth-child(7) {
+      @include pos_abs_t_l(68%, 73%);
+      @extend %temp_three_nth_seven_last;
+    }
+    &:last-child {
+      @include pos_abs_t_l(68%, 89%);
+      @extend %temp_three_nth_seven_last;
+    }
+  }
+  img {
+    &:nth-child(5) {
+      @include pos_abs_t_l(34%, 5%);
+    }
+    &:nth-child(6) {
+      @include pos_abs_t_l(87%, 75%);
+    }
+  }
+}
+//
+// style four_frame block
+//
+.four_frame {
+  @include pos(2834px, 896px);
+  background: url(../img/four_frame/bubles.png) 95% 75%/206px 131px no-repeat,
+    url(../img/four_frame/dotted.png) 65% 25%/142px 122px no-repeat,
+    url(../img/four_frame/girls.png) 85% 65%/446px 560px no-repeat,
+    url(../img/four_frame/elips.png) 90% 40%/646px 547px no-repeat;
+  background-color: #f5f3eb;
+  font-family: $ff;
+  >p {
+    &:first-child {
+      @include pos_abs_t_l(20%, 5%);
+      @include fz_lh_ls_c(88px, 88px, 2px, #000000);
+      max-width: 510px;
+    }
+    &:nth-child(2) {
+      @include pos_abs_t_l(45%, 5%);
+      @include fz_lh_ls_c(20px, 32px, none, #000000);
+      max-width: 530px;
+    }
+    &:nth-child(3) {
+      @include pos_abs_t_l(68.5%, 85.5%);
+      @include fz_lh_ls_c(32px, 32px, none, #ffffff);
+      max-width: 150px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  .fact_block {
+    %temp_fact_block {
+      content: '';
+      float: left;
+      margin-right: 10px;
+      height: 48px;
+      padding-right: 48px;
+    }
+    %temp_fact_block_first {
+      font-size: 16px;
+      line-height: 22px;
+      color: #000000;
+    }
+    p {
+      &:first-child {
+        @include pos_abs_t_l(65%, 5%);
+        @extend %temp_fact_block_first;
+        max-width: 177px;
+      }
+      &:first-child:before {
+        @extend %temp_fact_block;
+        background: url(../img/four_frame/earth.png) 0 / 48px no-repeat;
+      }
+      &:nth-child(2) {
+        @include pos_abs_t_l(65%, 23%);
+        @extend %temp_fact_block_first;
+        max-width: 200px;
+      }
+      &:nth-child(2):before {
+        @extend %temp_fact_block;
+        background: url(../img/four_frame/hends.png) 0 / 48px no-repeat;
+      }
+      &:nth-child(3) {
+        @include pos_abs_t_l(80%, 5%);
+        @extend %temp_fact_block_first;
+        max-width: 150px;
+      }
+      &:nth-child(3):before {
+        @extend %temp_fact_block;
+        background: url(../img/four_frame/smile_head.png) 0 / 48px no-repeat;
+      }
+      &:last-child {
+        @include pos_abs_t_l(80%, 23%);
+        @extend %temp_fact_block_first;
+        max-width: 140px;
+      }
+      &:last-child:before {
+        @extend %temp_fact_block;
+        background: url(../img/four_frame/abso.png) 0 / 48px no-repeat;
+      }
+    }
+  }
+}
+//
+// style five_frame block
+//
+.five_frame {
+  @include pos(3730px, 831px);
+  font-family: $ff;
+  background: url(../img/five_frame/bubbl.png) right bottom/40% no-repeat;
+  background-color: #f5f3eb;
+  .vector_five_block {
+    width: 200px;
+    @include flex(inline-block, row, none, none);
+    margin: auto 5px 5px 5px;
+    border: 1px solid #000000;
+  }
+  > p {
+    @include pos_abs_t_l(69px, 145px);
+    @include fz_lh_ls_c(96px, 96px, 2px, #000000);
+  }
+  > img {
+    @include pos_abs_t_l(122px, 950px);
+  }
+  .content_five_block {
+    @include flex(flex, row, space-between, none);
+    text-align: center;
+    max-width: 1376px;
+    margin: 350px 0 0 145px;
+    p {
+      @include fz_lh_ls_c(16px, 22px, none, #000000);
+      @include flex(inline-flex, row, space-between, none);
+      margin-top: 10px;
+      max-width: 332px;
+      .heade {
+        float: left;
+        @include fz_lh_ls_c(24px, 34px, none, #000000);
+      }
+      .cont_heade {
+        text-align: left;
+        line-height: 24px;
+      }
+    }
+    div {
+      margin: 0 132px 0 0;
+    }
+    .vector_five_block_four {
+      width: 170px;
+      @include flex(inline-block, row, none, none);
+      margin: auto 5px 5px 5px;
+      border: 1px solid #000000;
+    }
+  }
+}
+//
+// style six_frame block
+//
+.six_frame {
+  @include pos(4561px, 581px);
+  background: url(../img/six_frame/shapes.png) 35% 5%/ 10% no-repeat,
+    url(../img/six_frame/blue_buble.png) left 10%/ 20% no-repeat,
+    url(../img/six_frame/yelow_buble.png) 35% 80%/20% no-repeat,
+    url(../img/six_frame/orange_buble.png) 68% 35%/20% no-repeat,
+    url(../img/six_frame/dotted.png) 95% 15%/10% no-repeat,
+    url(../img/six_frame/green_buble.png) right 70%/20% no-repeat;
+  background-color: #f5f3eb;
+  @include fz_lh_ls_c(24px, 28px, none, #ffffff);
+  font-family: $ff;
+  text-align: center;
+  p {
+    &:first-child {
+      @include pos_abs_t_l(23%, 5%);
+      max-width: 167px;
+    }
+    &:nth-child(2) {
+      @include pos_abs_t_l(55%, 31%);
+      max-width: 252px;
+    }
+    &:nth-child(3) {
+      @include pos_abs_t_l(30%, 58%);
+      max-width: 232px;
+    }
+    &:last-child {
+      @include pos_abs_t_l(50%, 85%);
+      max-width: 232px;
+    }
+  }
+}
+//
+// style seven_frame block
+//
+.seven_frame {
+  @include pos(5142px, 403px);
+  font-family: $ff;
+  background-color: #f5f3eb;
+  p {
+    max-width: 760px;
+    margin: 0px auto;
+    padding-top: 62px;
+    @include fz_lh_ls_c(28px, 39px, none, #000000);
+    text-align: center;
+  }
+  .seven_frame_img_block {
+    @include flex(flex, row, space-around, none);
+    max-width: 985px;
+    margin: 0px auto;
+    padding-top: 75px;
+  }
+}
+//
+// style eight_frame block
+//
+.eight_frame {
+  @include pos(5750px, 1115px);
+  font-family: $ff;
+  background: url(../img/eight_frame/small_arrow.png) 23% 95%/1% no-repeat,
+    url(../img/eight_frame/certified.png) 95% 30% / 5% no-repeat,
+    url(../img/eight_frame/buble_dotted.png) left bottom/30% no-repeat;
+  background-color: #943434;
+  .eight_frame_img_block {
+    @include flex(flex, row, space-around, none);
+    margin-top: -100px;
+    padding: 0 50px 0 50px;
+  }
+  p {
+    &:nth-child(2) {
+      @include fz_lh_ls_c(197px, 280px, 8px, #ffffff);
+      @include pos_abs_t_l(20%, 1%);
+    }
+    &:nth-child(4) {
+      @include fz_lh_ls_c(197px, 280px, 8px, #ffffff);
+      @include pos_abs_t_l(65%, 67.7%);
+    }
+    &:nth-child(5) {
+      @include fz_lh_ls_c(40px, 48px, none, #ffffff);
+      @include pos_abs_t_l(83%, 5%);
+    }
+    &:nth-child(8) {
+      @include fz_lh_ls_c(15px, 26px, none, #ffffff);
+      text-align: right;
+      @include pos_abs_t_l(90%, 91%);
+    }
+    &:nth-child(9) {
+      @include fz_lh_ls_c(12px, 19px, none, #ffffff);
+      text-align: right;
+      @include pos_abs_t_l(95%, 78.7%);
+    }
+  }
+  > img {
+    &:nth-child(3) {
+      @include pos_abs_t_l(34%, 40%);
+    }
+    &:nth-child(6) {
+      @include pos_abs_t_l(97%, 5%);
+    }
+  }
+  table {
+    @include pos_abs_t_l(47%, 17%);
+    td {
+      padding-bottom: 40px;
+      padding-right: 150px;
+    }
+  }
+  a {
+    @include fz_lh_ls_c(16px, 26px, none, #ffffff);
+    &:hover {
+      text-shadow: 0px 0px 3px #ffffff;
+    }
+  }
+}

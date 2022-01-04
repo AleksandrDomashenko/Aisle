@@ -1,0 +1,23 @@
+@mixin flex($display, $fledir, $justcontent, $alignitems) {
+  display: $display;
+  flex-direction: $fledir;
+  justify-content: $justcontent;
+  align-items: $alignitems;
+};
+@mixin pos_abs_t_l ($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin pos($top, $height ) {
+  position: absolute;
+  top: $top;
+  height: $height;
+  width: 100%;
+}
+@mixin fz_lh_ls_c ($fz,$lh,$ls,$c) {
+  font-size: $fz;
+  line-height: $lh;
+  letter-spacing: $ls;
+  color: $c;
+}
